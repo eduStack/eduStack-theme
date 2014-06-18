@@ -1,0 +1,28 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+
+<%inherit file="/main.html" />
+
+<%block name="title"><title>${_("FAQ")}</title></%block>
+
+<section class="container about">
+  <nav>
+    <a href="about">${_("Vision")}</a>
+    <a href="faq" class="active">${_("Faq")}</a>
+    <a href="contact">${_("Contact")}</a>
+  </nav>
+
+
+  <section class="faq">
+    <p>本站由 北京信息科技大学<a href="http://iflab.org">ifLab</a>云计算小组基于 OpenEdX 平台搭建开发。</p>
+
+
+    </section>
+
+  </section>
+</section>
+
+%if user.is_authenticated():
+<%include file="/signup_modal.html" />
+%endif

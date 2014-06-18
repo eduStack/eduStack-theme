@@ -1,0 +1,31 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+
+<%inherit file="/main.html" />
+
+<%block name="title"><title>关于</title></%block>
+
+<section class="container about">
+  <nav id="about-menu">
+    <a href="#about" class="about active">关于</a>
+    
+  </nav>
+
+  <section class="vision">
+    <section class="message left" id="about">
+      <div class="photo">
+        <img src="${static.url('themes/eduStack-theme/images/bistux-campus.jpg')}" alt="bistux-campus" />
+      </div>
+      <article>
+        <h2>关于 本站</span></h2>
+
+        <p>本站由 北京信息科技大学<a href="http://iflab.org">ifLab</a>云计算小组基于 OpenEdX 平台搭建开发。</p>
+      </article>
+      <hr class="fade-right-hr-divider">
+    </section>
+
+   
+  </section>
+
+</section>
