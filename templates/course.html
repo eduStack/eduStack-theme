@@ -1,0 +1,51 @@
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from courseware.courses import course_image_url, get_course_about_section
+%>
+<%page args="course" />
+<article id="${course.id | h}" class="course">
+    %if course.is_newish:
+        <span class="status">${_("New")}</span>
+    %endif
+    <div class="course-wrapper">
+        <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
+            <div class="course-cover-image">
+                <img src="${course_image_url(course)}"
+                     alt="${course.display_number_with_default | h} ${get_course_about_section(course, 'title')} Cover Image"/>
+            </div>
+        </a>
+
+        <div class="course-description">
+            <div class="course-location clearfix">
+                <div class="course-university">
+                    <span class="university">${get_course_about_section(course, 'university')}</span>
+                </div>
+                <div class="course-code">
+                    <span>LSF0911x</span>
+                </div>
+            </div>
+            <div class="course-title">
+                <span>
+                    ${get_course_about_section(course, 'title')}
+                </span>
+            </div>
+            <div class="course-status">
+                <span>尚未开课</span>
+            </div>
+            <div class="course-start-date">
+                % if not course.start_date_is_still_default:
+                <span class="start-date">${course.start_datetime_text()}</span>
+                % endif
+            </div>
+        </div>
+        <!--
+        <section class="info">
+            <div class="desc">
+                <p>${get_course_about_section(course, 'short_description')}</p>
+            </div>
+        </section>
+        -->
+    </div>
+</article>

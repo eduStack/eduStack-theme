@@ -1,0 +1,149 @@
+<%! from django.utils.translation import ugettext as _ %>
+
+<%! from django.core.urlresolvers import reverse %>
+<%inherit file="main.html" />
+<%namespace name='static' file='static_content.html'/>
+<%! from microsite_configuration import microsite %>
+
+<%
+  homepage_overlay_html = microsite.get_value('homepage_overlay_html')
+
+  show_homepage_promo_video = microsite.get_value('show_homepage_promo_video', True)
+  homepage_promo_video_youtube_id = microsite.get_value('homepage_promo_video_youtube_id', "XNaiOGxWeto")
+
+  show_partners = microsite.get_value('show_partners', True)
+
+%>
+
+<section class="home page-content">
+    <!--
+  <header>
+    <div class="outer-wrapper">
+      <div class="title">
+        <hgroup>
+          % if homepage_overlay_html:
+            ${homepage_overlay_html}
+          % else:
+            % if self.stanford_theme_enabled():
+              <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Stanford")}</h1>
+            % else:
+              <h1>${_("The Future of Online Education")}</h1>
+            % endif
+            <h2>${_("For anyone, anywhere, anytime")}</h2>
+          % endif
+        </hgroup>
+      </div>
+
+        % if show_homepage_promo_video:
+        <a href="#video-modal" class="media" rel="leanModal">
+            <div class="hero">
+                <div class="play-intro"></div>
+            </div>
+        </a>
+        % endif
+    </div>
+  </header>
+    -->
+
+    <section class="banner">
+        <div class="banner-course-wrapper clearfix">
+            <div class="right half-box clearfix">
+                <div class="banner-course-image-wrapper">
+                    <img class="banner-course-image" src="http://www.xuetangx.com/c4x/MITx/6_00_1x/asset/images_course_image.jpg" alt="Course"/>
+                    % if show_homepage_promo_video:
+                    <a href="#video-modal" class="media" rel="leanModal">
+                        <img src="${static.url('themes/eduStack-theme/images/icon_play.png')}" alt="Play"/>
+                    </a>
+                    % endif
+                </div>
+            </div>
+            <div class="left half-box">
+                <div class="banner-course-title">
+                    <span>
+                        计算机科学导论
+                    </span>
+                </div>
+                <div class="banner-course-description">
+                    <span>
+                        CS50x是哈佛学院对计算机科学的学术内容和针对专业和非专业学生的编程艺术进行介绍的课程，有无以往的编程经验均可...
+                    </span>
+                </div>
+                <div class="banner-course-more">
+                    <a href="/courses">
+                        查看课程信息
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container courses-container">
+        <div>
+            <header>
+                <span>课程列表</span>
+            </header>
+            <section class="highlighted-courses">
+                % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+                <section class="courses">
+                    <ul class="courses-listing">
+                        %for course in courses:
+                        <li class="courses-listing-item">
+                            <%include file="course.html" args="course=course" />
+                        </li>
+                        %endfor
+                    </ul>
+                </section>
+                % endif
+
+            </section>
+        </div>
+    </section>
+    <section class="partner">
+        <div class="partner-title">
+            <span>合作伙伴</span>
+        </div>
+        <div>
+            <div class="partner-list-wrapper">
+                <ul class="partner-list unlist">
+                    <li>
+                        <a href="#"><img src="${static.url('themes/eduStack-theme/images/partner_seentao.png')}" alt="edX"/></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="${static.url('themes/eduStack-theme/images/partner_edx.png')}" alt="edX"/></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="${static.url('themes/eduStack-theme/images/partner_bgi.png')}" alt="edX"/></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section id="video-modal" class="modal home-page-video-modal video-modal">
+  <div class="inner-wrapper">
+    <video id="course-video" width="640" height="360" preload="none" src="https://dn-idefs.qbox.me/edX_Anthem.mp4" controls=""></video>
+  </div>
+</section>
+
+<%block name="headextra">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</%block>
+
+<%block name="js_extra">
+   <script type="text/javascript">
+      $(window).load(function() {
+         if(getParameterByName('next')) {
+              $('#login').trigger("click");
+         }
+      })
+   </script>
+</%block>
+
+% if show_signup_immediately is not UNDEFINED:
+  ## NOTE: This won't work in production, because anonymous views are cached, so it will
+  ## show either with or without this extra js for 3 minutes at a time.
+<script type="text/javascript">
+  $(window).load(function() {$('#signup_action').trigger("click");});
+</script>
+% endif

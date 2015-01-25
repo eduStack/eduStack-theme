@@ -3,89 +3,110 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%namespace name='static' file='static_content.html'/>
 
-<div class="wrapper wrapper-footer">
+<div class="wrapper wrapper-footer page-footer">
   <footer>
-    <div class="colophon">
-      <nav class="nav-colophon">
-      <ol>
-          <li class="nav-colophon-01">
-          <a id="about" href="${marketing_link('ABOUT')}">
-              ${_("About")}
-          </a>
-          </li>
-          <!--
-          <li class="nav-colophon-02">
-          <a id="jobs" href="${marketing_link('JOBS')}">
-              ${_("Jobs")}
-          </a>
-          </li>
-          <li class="nav-colophon-03">
-          <a id="press" href="${marketing_link('PRESS')}">
-              ${_("Press")}
-          </a>
-          </li>
-          -->
-          <li class="nav-colophon-04">
-          <a id="faq" href="${marketing_link('FAQ')}">
-              ${_("FAQ")}
-          </a>
-          </li>
-          <li class="nav-colophon-05">
-          <a id="contact" href="${marketing_link('CONTACT')}">
-              ${_("Contact")}
-          </a>
-          </li>
-      </ol>
-      </nav>
+      <div class="colophon footer-item footer-site-info">
+          <nav class="nav-colophon">
+              <ul class="unlist">
+                  <li class="nav-colophon-01">
+                      <a id="about" href="${marketing_link('ABOUT')}">
+                          ${_("About")}
+                      </a>
+                  </li>
+                  <li class="nav-colophon-05">
+                      <a id="contact" href="${marketing_link('CONTACT')}">
+                          ${_("Contact")}
+                      </a>
+                  </li>
+                  <li class="nav-colophon-04">
+                      <a id="faq" href="${marketing_link('FAQ')}">
+                          ${_("FAQ")}
+                      </a>
+                  </li>
+              </ul>
+          </nav>
 
-      <div class="colophon-about">
-        <img src="${static.url('themes/eduStack-theme/images/header-logo.png')}" />
-
-        <p>本站由 北京信息科技大学<a href="http://iflab.org">ifLab</a>云计算小组基于 OpenEdX 平台搭建开发。</p>
+          <div class="colophon-about">
+              <section>BistuX由 北京信息科技大学<a href="http://iflab.org">ifLab</a>社团基于edx平台开发维护</section>
+              <section class="copyright">${_("&copy; 2015 {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}</section>
+          </div>
       </div>
-    </div>
 
-    <div class="references">
-      <nav class="nav-social">
-        <ul>
-          <li class="nav-social-01">
-            <a href="http://www.bistu.edu.cn" target="_blank" rel="external">
-              <img src="${static.url('themes/eduStack-theme/images/bistu.png')}" alt="北京信息科技大学" style="width: 30px;height: 30px;" />
-            </a>
-          </li>
-          <li class="nav-social-02">
-            <a href="http://iflab.org" rel="external">
-              <img src="${static.url('themes/eduStack-theme/images/iflab.jpeg')}" alt="ifLab" style="width: 30px;height: 30px;" />
-            </a>
-          </li>
-          <li class="nav-social-03">
-            <a href="http://edustack.org" target="_blank" rel="external">
-              <img src="${static.url('themes/eduStack-theme/images/edustack.png')}" alt="eduStack" style="width: 30px;height: 30px;" />
-            </a>
-          </li>
-          <li class="nav-social-04">
-            <a href="http://idefs.com/" target="_blank" rel="external">
-              <img src="${static.url('themes/eduStack-theme/images/idefs.png')}" alt="竹轩小站" style="width: 30px;height: 30px;"/>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <p class="copyright">${_("&copy; 2014 {platform_name}, some rights reserved.").format(platform_name=settings.PLATFORM_NAME)}</p>
-
-      <nav class="nav-legal">
-        <ul>
-          <li class="nav-legal-01">
-            <a href="/tos" target="_blank" >服务条款</a>
-          </li>
-          <li class="nav-legal-01">
-            <a href="/honor" target="_blank" >诚信准则</a>
-          </li>
-          <li class="nav-legal-02">
-            <a href="/privacy" target="_blank" >隐私政策</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+      <div class="footer-item footer-socials">
+          <div class="footer-social-group">
+              <ul class="unlist">
+                  <li>
+                      <a href="#">
+                          <img src="${static.url('themes/eduStack-theme/images/icon_weibo.png')}" alt="新浪微博"/>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <img src="${static.url('themes/eduStack-theme/images/icon_renren.png')}" alt="人人"/>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <img src="${static.url('themes/eduStack-theme/images/icon_weixin.png')}" alt="微信"/>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <img src="${static.url('themes/eduStack-theme/images/icon_txwb.png')}" alt="腾讯微博"/>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <div class="footer-open-edx">
+              <a href="http://openedx.org" target="_blank">
+                  <img src="${static.url('themes/eduStack-theme/images/icon_open_edx.png')}" alt="OpenEdx"/>
+              </a>
+          </div>
+      </div>
+      <!--
+      <div class="references">
+          <nav class="nav-social">
+              <ul>
+                  <li class="nav-social-01">
+                      <a href="http://www.bistu.edu.cn" target="_blank" rel="external">
+                          <img src="${static.url('themes/eduStack-theme/images/bistu.png')}" alt="北京信息科技大学"
+                               style="width: 30px;height: 30px;"/>
+                      </a>
+                  </li>
+                  <li class="nav-social-02">
+                      <a href="http://iflab.org" rel="external">
+                          <img src="${static.url('themes/eduStack-theme/images/iflab.jpeg')}" alt="ifLab"
+                               style="width: 30px;height: 30px;"/>
+                      </a>
+                  </li>
+                  <li class="nav-social-03">
+                      <a href="http://edustack.org" target="_blank" rel="external">
+                          <img src="${static.url('themes/eduStack-theme/images/edustack.png')}" alt="eduStack"
+                               style="width: 30px;height: 30px;"/>
+                      </a>
+                  </li>
+                  <li class="nav-social-04">
+                      <a href="http://idefs.com/" target="_blank" rel="external">
+                          <img src="${static.url('themes/eduStack-theme/images/idefs.png')}" alt="竹轩小站"
+                               style="width: 30px;height: 30px;"/>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+          <nav class="nav-legal">
+              <ul>
+                  <li class="nav-legal-01">
+                      <a href="/tos" target="_blank">服务条款</a>
+                  </li>
+                  <li class="nav-legal-01">
+                      <a href="/honor" target="_blank">诚信准则</a>
+                  </li>
+                  <li class="nav-legal-02">
+                      <a href="/privacy" target="_blank">隐私政策</a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+          -->
   </footer>
 </div>
