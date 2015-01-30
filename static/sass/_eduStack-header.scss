@@ -1,0 +1,153 @@
+
+@import "eduStack-const";
+
+header.global {
+
+  $_mHeaderHeight: 50px;
+  $_hHeaderHeight: 60px;
+  $_xHeaderHeight: 74px;
+
+  height: auto;
+  max-height: 74px;
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  font-size: $xFontSize;
+  border-bottom: 4px solid #1d9dd9;
+
+  a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &.slim nav h2 {
+    float: none;
+    width: auto;
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  nav {
+
+    $_height: $_xHeaderHeight;
+
+    height: $_height;
+    line-height: $_height;
+    width: 93%;
+    margin: 0 auto;
+    padding: 0;
+    max-width: $gMaxPageWidth;
+    min-width: $gMinPageWidth;
+
+    @media screen and (max-width: $gWidth) {
+      height: $_hHeaderHeight;
+      line-height: $_hHeaderHeight;
+    }
+
+    @media screen and (max-width: $gTabletWidth) {
+      height: $_mHeaderHeight;
+      line-height: $_mHeaderHeight;
+    }
+
+    .logo {
+      display: inline-block;
+    }
+
+    .header-links {
+      float: right;
+      height: 100%;
+      display: inline-block;
+
+      section {
+        height: 100%;
+        display: inline-block;
+      }
+
+      .header-courses-search {
+        margin-right: 6rem;
+        float: left;
+
+        @media screen and (max-width: $gWidth) {
+          margin-right: 3rem;
+        }
+
+        @media screen and (max-width: $gTabletWidth) {
+          display: none;
+        }
+
+      }
+
+    }
+
+    // if has already login
+    .header-login-authenticated {
+
+      .user {
+        margin: 0;
+        .primary > a {
+          background-image: none;
+        }
+
+        .dropdown-menu {
+          top: 73%;
+          right: -5px;
+        }
+      }
+
+    }
+
+    // if do not login
+    .header-login-container {
+
+      $_mButtonSize: 4em;
+      $_hButtonSize: 4em;
+      $_xButtonSize: 5em;
+
+      a {
+        display: inline-block;
+        width: 100%;
+        height: 2em;
+        line-height: 2em;
+        text-align: center;
+
+        &.cta-login {
+          background-color: #0DA3DC;
+          border-radius: 0.3rem;
+          color: white;
+        }
+
+      }
+
+      div {
+        display: inline-block;
+        width: $_xButtonSize;
+        height: 100%;
+        &.right {
+          width: inherit;
+          margin: 0 0.4rem;
+        }
+      }
+
+      @media screen and (max-width: $gWidth) {
+        div {
+          &.left {
+            width: $_hButtonSize;
+          }
+        }
+      }
+
+      @media screen and (max-width: $gTabletWidth) {
+        div {
+          &.left {
+            width: $_mButtonSize;
+          }
+        }
+      }
+
+    }
+
+  }
+
+}

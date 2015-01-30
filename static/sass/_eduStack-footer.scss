@@ -1,0 +1,137 @@
+
+@import "eduStack-const";
+
+.page-footer {
+
+  font-size: $gFontSize;
+  width: 100%;
+  padding: 25px 0 30px;
+  @media screen and (max-width: $gTabletWidth) {
+    overflow-x: hidden;
+  }
+
+
+  // footer style
+  footer {
+    min-width: $gMinPageWidth;
+    max-width: $gMaxPageWidth;
+    width: 93%;
+    margin: 0 auto;
+
+    @media screen and (max-width: $gTabletWidth) {
+      padding: 0.4rem 1rem;
+      width: 94%;
+      min-width: 80%;
+    }
+
+    a, a:hover, a:active, a:visited {
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+
+
+    .footer-site-info {
+      @media screen and (min-width: $gTabletWidth) {
+        float: left;
+        max-width: inherit;
+        min-width: inherit;
+        nav {
+          font-size: $xFontSize;
+        }
+      }
+
+      @media screen and (max-width: $gTabletWidth) {
+        width: 100%;
+        float: none;
+      }
+
+      .nav-colophon {
+        margin-bottom: 2rem;
+        @media screen and (max-width: $gTabletWidth) {
+          margin-bottom: 1rem;
+        }
+
+        // nav list style
+        ul li {
+          float: left;
+          margin-right: 1em;
+          a {
+            color: #333;
+          }
+        }
+      }
+
+      .colophon-about {
+        section {
+          line-height: 1.4;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+
+    .footer-item {
+      overflow: hidden;
+    }
+
+    .footer-socials {
+      $_socialNumber: 4;
+      @media screen and (min-width: $gTabletWidth) {
+        float: right;
+        .footer-social-group ul {
+          text-align: right;
+        }
+      }
+      @media screen and (max-width: $gTabletWidth) {
+        width: 100%;
+        margin-top: 2rem;
+        .footer-social-group ul {
+          text-align: center;
+        }
+      }
+      ul {
+        li {
+          display: inline-block;
+          margin-left: 1rem;
+          a {
+            display: inline-block;
+            width: 4rem;
+            height: 4rem;
+            @media screen and (max-width: $gTabletWidth) {
+              width: 3.4rem;
+              height: 3.4rem;
+            }
+            @media screen and (max-width: $gPhoneWidth) {
+              width: 3rem;
+              height: 3rem;
+            }
+            img {
+              width: 100%;
+              max-width: 100%;
+            }
+          }
+        }
+      }
+
+      .footer-open-edx {
+        margin-top: 1rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: right;
+        @media screen and (max-width: $gTabletWidth) {
+          text-align: center;
+        }
+        a {
+          display: inline-block;
+          height: 1.4rem;
+          max-height: 100%;
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+

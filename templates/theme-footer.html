@@ -3,11 +3,11 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%namespace name='static' file='static_content.html'/>
 
-<div class="wrapper wrapper-footer page-footer">
-  <footer>
+<div class="wrapper page-footer">
+  <footer class="clearfix">
       <div class="colophon footer-item footer-site-info">
           <nav class="nav-colophon">
-              <ul class="unlist">
+              <ul class="unlist clearfix">
                   <li class="nav-colophon-01">
                       <a id="about" href="${marketing_link('ABOUT')}">
                           ${_("About")}
@@ -26,8 +26,7 @@
               </ul>
           </nav>
 
-          <div class="colophon-about">
-              <section>BistuX由 北京信息科技大学<a href="http://iflab.org">ifLab</a>社团基于edx平台开发维护</section>
+          <div class="colophon-about"><section><b>BistuX</b>由北京信息科技大学<a href="http://iflab.org">ifLab</a>社团基于<b>Open edX</b>平台开发并维护</section>
               <section class="copyright">${_("&copy; 2015 {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}</section>
           </div>
       </div>
@@ -36,7 +35,7 @@
           <div class="footer-social-group">
               <ul class="unlist">
                   <li>
-                      <a href="#">
+                      <a href="http://weibo.com/iflab" target="_blank">
                           <img src="${static.url('themes/eduStack-theme/images/icon_weibo.png')}" alt="新浪微博"/>
                       </a>
                   </li>
