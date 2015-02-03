@@ -1,15 +1,17 @@
 
-@import "eduStack-const";
+@import "eduStack-base";
 
 .page-footer {
 
   font-size: $gFontSize;
   width: 100%;
   padding: 25px 0 30px;
-  @media screen and (max-width: $gTabletWidth) {
+  background-color: #FAFAFA;
+  margin-top: 2rem;
+  @include media('medium') {
     overflow-x: hidden;
+    margin: 0;
   }
-
 
   // footer style
   footer {

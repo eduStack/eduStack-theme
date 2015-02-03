@@ -4,7 +4,7 @@
  * @author Allen
  **************************************/
 
-@import "eduStack-const";
+@import "eduStack-base";
 
 .page-content {
 
@@ -39,7 +39,7 @@
       .half-box {
         width: 50%;
 
-        @media screen and (max-width: $gPhoneWidth) {
+        @include media('small') {
           width: 100%;
           float: none;
         }
@@ -61,7 +61,7 @@
         margin-top: 2rem;
         text-align: left;
 
-        @media screen and (max-width: $gPhoneWidth) {
+        @include media('small') {
           text-align: center;
         }
 
@@ -94,6 +94,21 @@
         position: relative;
         height: 16rem;
 
+        @include media('normal') {
+          width: 80%;
+          height: 14rem;
+        }
+        @include media('medium') {
+          width: 86%;
+          height: 12rem;
+        }
+        @include media('small') {
+          width: 90%;
+          height: 15rem;
+          float: none;
+          margin-bottom: 3rem;
+        }
+
         img.banner-course-image {
           max-width: 100%;
           width: 100%;
@@ -124,22 +139,6 @@
 
         }
 
-        @media screen and (max-width: $gWidth) {
-          width: 80%;
-          height: 14rem;
-        }
-
-        @media screen and (max-width: $gTabletWidth) {
-          width: 86%;
-          height: 12rem;
-        }
-
-        @media screen and (max-width: $gPhoneWidth) {
-          width: 90%;
-          height: 15rem;
-          float: none;
-          margin-bottom: 3rem;
-        }
       }
 
     }
@@ -158,8 +157,11 @@
     max-width: inherit;
     max-height: inherit;
 
-    @media screen and (max-width: $gWidth) {
+    @include media('normal') {
       padding: 2rem 0 1rem;
+    }
+    @include media('small') {
+      padding: 0;
     }
 
     &>div {
@@ -170,12 +172,15 @@
     header {
       font-size: 2rem;
       line-height: 1.4;
-      margin: 0.4rem 0;
+      margin-top: 1rem;
+      padding-bottom: 0.4rem;
       border-bottom: 1px solid #CCC;
-      @media screen and (max-width: $gWidth) {
+      @include media('normal') {
         margin: 0;
-        padding: 0 1.2rem;
         font-size: 1.4rem;
+      }
+      @include media('small') {
+        font-weight: bold;
       }
     }
 
@@ -183,45 +188,55 @@
       padding-bottom: 1.4rem;
     }
 
+    /***
+     * for course list
+     ***/
     section.courses {
-
       padding: 0;
-
-      $_xNumber: 4;
-      $_hNumber: 3;
-      $_mNumber: 2;
-      $_sNumber: 1;
 
       ul.courses-listing {
 
         li {
-          width: percentage(1/$_xNumber);
-          overflow-x: hidden;
-          margin: 2rem 0 0 0;
+          overflow: visible;
+          width: 24%;
+          margin: 1rem 0.5% 0;
           padding: 0;
 
-          @media screen and (max-width: $gWidth) {
-            width: percentage(1/$_hNumber);
+          @include media('normal') {
+            width: 31.2%;
+            margin: 1rem 1% 0 !important;
           }
-
-          @media screen and (max-width: $gTabletWidth) {
-            width: percentage(1/$_mNumber);
+          @include media('medium') {
+            width: 46%;
+            margin: 2rem 2% 0 !important;
           }
-
-          @media screen and (max-width: $gPhoneWidth) {
-            width: percentage(1/$_sNumber);
+          @include media('small') {
+            width: 100%;
+            float: none;
           }
 
           article {
-            width: 90%;
+            width: 24rem;
+            max-width: 100%;
             margin: 0 auto;
             border: none;
             border-radius: 0.2rem;
             box-shadow: none;
 
+            .course-wrapper {
+              overflow: hidden;
+              max-width: 100%;
+            }
+
             .course-cover-image {
-              height: 11rem;
-              width: 100%;
+              max-width: 100%;
+
+              @include media('large') {
+                width: 24rem;
+              }
+              @include media('small') {
+                width: 24rem;
+              }
 
               img {
                 max-width: 100%;
@@ -286,7 +301,7 @@
   width: 100%;
   height: 100%;
   padding: 3rem 0 5rem;
-  background-color: #F3CA00;
+  background-color: rgba(175, 217, 24, 0.77);
 
   $_partnerNumber: 3;
 

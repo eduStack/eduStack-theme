@@ -1,5 +1,5 @@
 
-@import "eduStack-const";
+@import "eduStack-base";
 
 header.global {
 
@@ -16,6 +16,9 @@ header.global {
   padding: 0;
   font-size: $xFontSize;
   border-bottom: 4px solid #1d9dd9;
+  &.slim {
+    border-bottom: 4px solid #1d9dd9 !important;
+  }
 
   a, a:hover, a:visited, a:active {
     text-decoration: none;
@@ -41,24 +44,30 @@ header.global {
     max-width: $gMaxPageWidth;
     min-width: $gMinPageWidth;
 
-    @media screen and (max-width: $gWidth) {
+    @include media('normal') {
       height: $_hHeaderHeight;
       line-height: $_hHeaderHeight;
     }
 
-    @media screen and (max-width: $gTabletWidth) {
+    @include media('medium') {
       height: $_mHeaderHeight;
       line-height: $_mHeaderHeight;
     }
 
+    @include media('small') {
+      padding: 1rem 0;
+    }
+
     .logo {
       display: inline-block;
+      margin-left: 0.4rem;
     }
 
     .header-links {
       float: right;
       height: 100%;
       display: inline-block;
+      margin-right: 0.4rem;
 
       section {
         height: 100%;
@@ -127,25 +136,21 @@ header.global {
         &.right {
           width: inherit;
           margin: 0 0.4rem;
+          @include media('medium') {
+            width: $_mButtonSize;
+          }
         }
-      }
 
-      @media screen and (max-width: $gWidth) {
-        div {
-          &.left {
+        &.left {
+          margin-right: 2rem;
+          @include media('small') {
+            margin-right: 0;
+          }
+          @include media('normal') {
             width: $_hButtonSize;
           }
         }
       }
-
-      @media screen and (max-width: $gTabletWidth) {
-        div {
-          &.left {
-            width: $_mButtonSize;
-          }
-        }
-      }
-
     }
 
   }

@@ -1,0 +1,49 @@
+/***
+ * Global settings
+ ***/
+
+$gFontSize: 12px;
+$gPhoneWidth: 540px;
+$gTabletWidth: 768px;
+$gWidth: 970px;
+$gMaxPageWidth: 1180px;
+$gMinPageWidth: 320px;
+
+$mFontSize: 12px;
+$hFontSize: 14px;
+$xFontSize: 16px;
+
+%clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+$breakpoints: (
+    'small': (max-width: $gPhoneWidth),
+    'medium': (max-width: $gTabletWidth),
+    'normal': (max-width: $gWidth),
+    'large': (max-width: $gMaxPageWidth),
+);
+
+/// Responsive manager.
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+  @else {
+    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+
