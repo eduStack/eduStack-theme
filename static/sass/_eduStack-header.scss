@@ -1,6 +1,8 @@
 
 @import "eduStack-base";
 
+$_buttonBackgroundColor: #1790c7;
+
 header.global {
 
   $_mHeaderHeight: 50px;
@@ -60,7 +62,9 @@ header.global {
 
     .logo {
       display: inline-block;
-      margin-left: 0.4rem;
+      @include media('medium') {
+        margin-left: 0.4rem;
+      }
     }
 
     .header-links {
@@ -122,7 +126,8 @@ header.global {
         text-align: center;
 
         &.cta-login {
-          background-color: #0DA3DC;
+          background-color: $_buttonBackgroundColor;
+          box-shadow: 0 1px 1px 0 #0a4a67;
           border-radius: 0.3rem;
           color: white;
         }
@@ -155,4 +160,10 @@ header.global {
 
   }
 
+}
+
+// 修正注册页面页头宽度
+.view-register header.global nav,
+.view-login header.global nav {
+  width: inherit;
 }

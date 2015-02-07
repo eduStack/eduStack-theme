@@ -6,7 +6,10 @@
 
 @import "eduStack-base";
 
-.page-content {
+$partnerBackgroundColor: rgba(175, 217, 24, 0.77);
+$bannerBackgroundColor: #0DA3DC;
+
+.content-wrapper {
 
   max-width: inherit;
   max-height: inherit;
@@ -14,7 +17,7 @@
   .banner {
     margin: 0;
     padding: 0;
-    background-color: #0DA3DC;
+    background-color: $bannerBackgroundColor;
     $_color: white;
 
     .banner-course-wrapper {
@@ -193,6 +196,7 @@
      ***/
     section.courses {
       padding: 0;
+      margin-top: 1.4rem;
 
       ul.courses-listing {
 
@@ -242,7 +246,8 @@
                 max-width: 100%;
                 width: 100%;
                 min-width: 100%;
-                max-height: 100%;
+                height: 13rem;
+                max-height: 14rem;
                 overflow: hidden;
               }
             }
@@ -301,7 +306,7 @@
   width: 100%;
   height: 100%;
   padding: 3rem 0 5rem;
-  background-color: rgba(175, 217, 24, 0.77);
+  background-color: $partnerBackgroundColor;
 
   $_partnerNumber: 3;
 
