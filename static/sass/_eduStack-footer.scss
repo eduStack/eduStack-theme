@@ -8,7 +8,7 @@
   padding: 25px 0 30px;
   background-color: #FAFAFA;
   margin-top: 2rem;
-  @include media('medium') {
+  @include screenIs(belowDesktop) {
     overflow-x: hidden;
     margin: 0;
   }
@@ -16,13 +16,12 @@
   // footer style
   footer {
     min-width: $gMinPageWidth;
-    max-width: $gMaxPageWidth;
-    width: 93%;
+    max-width: $gMaxContentWidth;
     margin: 0 auto;
+    width: 100%;
 
-    @media screen and (max-width: $gTabletWidth) {
+    @include screenIs(belowDesktop) {
       padding: 0.4rem 1rem;
-      width: 94%;
       min-width: 80%;
     }
 
@@ -34,7 +33,8 @@
 
 
     .footer-site-info {
-      @media screen and (min-width: $gTabletWidth) {
+
+      @include screenIs(overPad) {
         float: left;
         max-width: inherit;
         min-width: inherit;
@@ -43,14 +43,14 @@
         }
       }
 
-      @media screen and (max-width: $gTabletWidth) {
+      @include screenIs(belowDesktop) {
         width: 100%;
         float: none;
       }
 
       .nav-colophon {
         margin-bottom: 2rem;
-        @media screen and (max-width: $gTabletWidth) {
+        @include screenIs(belowDesktop) {
           margin-bottom: 1rem;
         }
 
@@ -78,13 +78,13 @@
 
     .footer-socials {
       $_socialNumber: 4;
-      @media screen and (min-width: $gTabletWidth) {
+      @include screenIs(overPad) {
         float: right;
         .footer-social-group ul {
           text-align: right;
         }
       }
-      @media screen and (max-width: $gTabletWidth) {
+      @include screenIs(belowDesktop) {
         width: 100%;
         margin-top: 2rem;
         .footer-social-group ul {
@@ -99,11 +99,11 @@
             display: inline-block;
             width: 4rem;
             height: 4rem;
-            @media screen and (max-width: $gTabletWidth) {
+            @include screenIs(isPad) {
               width: 3.4rem;
               height: 3.4rem;
             }
-            @media screen and (max-width: $gPhoneWidth) {
+            @include screenIs(isPhone) {
               width: 3rem;
               height: 3rem;
             }
@@ -127,7 +127,7 @@
         height: 2rem;
         line-height: 2rem;
         text-align: right;
-        @media screen and (max-width: $gTabletWidth) {
+        @include screenIs(belowDesktop) {
           text-align: center;
         }
         a {

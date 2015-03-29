@@ -2,12 +2,14 @@
  * Global settings
  ***/
 
-$gFontSize: 12px;
-$gPhoneWidth: 540px;
-$gTabletWidth: 768px;
-$gWidth: 970px;
-$gMaxPageWidth: 1180px;
+$gFontSize: 14px;
+$gMaxPageWidth: 1200px;
+$gMaxContentWidth: 1180px;
+$gMaxPadWidth: 992px;
+$gMaxPhoneWidth: 768px;
 $gMinPageWidth: 320px;
+
+$gWidth: 1200px;
 
 $mFontSize: 12px;
 $hFontSize: 14px;
@@ -24,25 +26,91 @@ $xFontSize: 16px;
   }
 }
 
-$breakpoints: (
-    'small': (max-width: $gPhoneWidth),
-    'medium': (max-width: $gTabletWidth),
-    'normal': (max-width: $gWidth),
-    'large': (max-width: $gMaxPageWidth),
-);
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-/// Responsive manager.
-/// @access public
-/// @param {String} $breakpoint - Breakpoint
-/// @requires $breakpoints
-@mixin media($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+
+$phone-range: (0, 40em) !default;
+$pad-range: (40.0625em, 64em) !default;
+$desktop-range: (64.0625em, 90em) !default;
+$wide-range: (90.0625em, 99999em) !default;
+
+@function lower-bound($range) {
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range, 1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+@mixin screenIs($size) {
+  @if $size == isPhone {
+    @media screen and (max-width: #{upper-bound($phone-range)})  {
+      @content;
+    }
+  }
+  @else if $size == isPad {
+    @media (min-width: #{lower-bound($pad-range)}) and (max-width: #{upper-bound($pad-range)}) {
+      @content;
+    }
+  }
+  @else if $size == isDesktop {
+    @media (min-width: #{lower-bound($desktop-range)}) and (max-width: #{upper-bound($desktop-range)}) {
+      @content;
+    }
+  }
+  @else if $size == isWide {
+    @media screen and (min-width: #{lower-bound($wide-range)}) {
+      @content;
+    }
+  }
+  // phone
+  @else if $size == belowPad {
+    @media (max-width: #{upper-bound($phone-range)})  {
+      @content;
+    }
+  }
+  // phone, pad
+  @else if $size == belowDesktop {
+    @media (max-width: #{upper-bound($pad-range)}) {
+      @content;
+    }
+  }
+  // phone, pad, desktop
+  @else if $size == belowWide {
+    @media (max-width: #{upper-bound($desktop-range)}) {
+      @content;
+    }
+  }
+  // pad, desktop, wide
+  @else if $size == overPhone {
+    @media (min-width: #{lower-bound($pad-range)})  {
+      @content;
+    }
+  }
+  // desktop, wide
+  @else if $size == overPad {
+    @media (min-width: #{lower-bound($desktop-range)}) {
+      @content;
+    }
+  }
+  // wide
+  @else if $size == overDesktop {
+    @media (min-width: #{lower-bound($wide-range)}) {
       @content;
     }
   }
   @else {
-    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+    @error 'No value found for `#{$size}`, please check your parameter!';
   }
 }
 

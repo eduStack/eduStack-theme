@@ -5,22 +5,19 @@ $_buttonBackgroundColor: #1790c7;
 
 header.global {
 
-  $_mHeaderHeight: 50px;
   $_hHeaderHeight: 60px;
   $_xHeaderHeight: 74px;
+  $_maxHeaderHeight: 99px;
 
   height: auto;
-  max-height: 74px;
+  max-height: $_maxHeaderHeight;
   width: 100%;
   max-width: 100%;
   overflow: visible;
   margin: 0;
   padding: 0;
   font-size: $xFontSize;
-  border-bottom: 4px solid #1d9dd9;
-  &.slim {
-    border-bottom: 4px solid #1d9dd9 !important;
-  }
+  border: none;
 
   a, a:hover, a:visited, a:active {
     text-decoration: none;
@@ -40,29 +37,28 @@ header.global {
 
     height: $_height;
     line-height: $_height;
-    width: 93%;
     margin: 0 auto;
     padding: 0;
-    max-width: $gMaxPageWidth;
+    max-width: $gMaxContentWidth;
     min-width: $gMinPageWidth;
 
-    @include media('normal') {
-      height: $_hHeaderHeight;
-      line-height: $_hHeaderHeight;
+    @include screenIs(isWide) {
+      height: $_maxHeaderHeight;
+      line-height: $_maxHeaderHeight;
     }
 
-    @include media('medium') {
-      height: $_mHeaderHeight;
-      line-height: $_mHeaderHeight;
+    @include screenIs(belowDesktop) {
+      height: $_xHeaderHeight;
+      line-height: $_xHeaderHeight;
     }
 
-    @include media('small') {
+    @include screenIs(isPhone) {
       padding: 1rem 0;
     }
 
     .logo {
       display: inline-block;
-      @include media('medium') {
+      @include screenIs(belowDesktop) {
         margin-left: 0.4rem;
       }
     }
@@ -82,11 +78,11 @@ header.global {
         margin-right: 6rem;
         float: left;
 
-        @media screen and (max-width: $gWidth) {
+        @include screenIs(belowWide) {
           margin-right: 3rem;
         }
 
-        @media screen and (max-width: $gTabletWidth) {
+        @include screenIs(belowDesktop) {
           display: none;
         }
 
@@ -141,25 +137,23 @@ header.global {
         &.right {
           width: inherit;
           margin: 0 0.4rem;
-          @include media('medium') {
+          @include screenIs(belowDesktop) {
             width: $_mButtonSize;
           }
         }
 
         &.left {
           margin-right: 2rem;
-          @include media('small') {
+          @include screenIs(isPhone) {
             margin-right: 0;
           }
-          @include media('normal') {
+          @include screenIs(belowWide) {
             width: $_hButtonSize;
           }
         }
       }
     }
-
   }
-
 }
 
 // 修正注册页面页头宽度
