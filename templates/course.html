@@ -18,19 +18,21 @@ from courseware.courses import course_image_url, get_course_about_section
         </a>
 
         <div class="course-description">
-            <div class="course-location clearfix">
-                <div class="course-university">
-                    <span class="university">${get_course_about_section(course, 'university')}</span>
+            <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
+                <div class="course-location clearfix">
+                    <div class="course-university">
+                        <span class="university">${get_course_about_section(course, 'university')}</span>
+                    </div>
+                    <div class="course-code">
+                        <span>LSF0911x</span>
+                    </div>
                 </div>
-                <div class="course-code">
-                    <span>LSF0911x</span>
-                </div>
-            </div>
-            <div class="course-title">
+                <div class="course-title">
                 <span>
                     ${get_course_about_section(course, 'title')}
                 </span>
-            </div>
+                </div>
+            </a>
             <div class="course-status">
                 <span>尚未开课</span>
             </div>

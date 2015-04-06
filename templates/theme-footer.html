@@ -3,7 +3,7 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%namespace name='static' file='static_content.html'/>
 
-<div class="wrapper page-footer">
+<div class="wrapper page-footer" id="eduStackPageFooter">
   <footer class="clearfix">
       <div class="colophon footer-item footer-site-info">
           <nav class="nav-colophon">
@@ -28,6 +28,19 @@
 
           <div class="colophon-about"><section><b>BistuX</b>由北京信息科技大学<a href="http://iflab.org">ifLab</a>社团基于<b>Open edX</b>平台开发并维护</section>
               <section class="copyright">${_("&copy; 2015 {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}</section>
+              <nav class="nav-legal">
+                  <ul>
+                      <li class="nav-legal-01">
+                          <a href="/tos" target="_blank">服务条款</a>
+                      </li>
+                      <li class="nav-legal-01">
+                          <a href="/honor" target="_blank">诚信准则</a>
+                      </li>
+                      <li class="nav-legal-02">
+                          <a href="/privacy" target="_blank">隐私政策</a>
+                      </li>
+                  </ul>
+              </nav>
           </div>
       </div>
 
@@ -62,50 +75,6 @@
               </a>
           </div>
       </div>
-      <!--
-      <div class="references">
-          <nav class="nav-social">
-              <ul>
-                  <li class="nav-social-01">
-                      <a href="http://www.bistu.edu.cn" target="_blank" rel="external">
-                          <img src="${static.url('themes/eduStack-theme/images/bistu.png')}" alt="北京信息科技大学"
-                               style="width: 30px;height: 30px;"/>
-                      </a>
-                  </li>
-                  <li class="nav-social-02">
-                      <a href="http://iflab.org" rel="external">
-                          <img src="${static.url('themes/eduStack-theme/images/iflab.jpeg')}" alt="ifLab"
-                               style="width: 30px;height: 30px;"/>
-                      </a>
-                  </li>
-                  <li class="nav-social-03">
-                      <a href="http://edustack.org" target="_blank" rel="external">
-                          <img src="${static.url('themes/eduStack-theme/images/edustack.png')}" alt="eduStack"
-                               style="width: 30px;height: 30px;"/>
-                      </a>
-                  </li>
-                  <li class="nav-social-04">
-                      <a href="http://idefs.com/" target="_blank" rel="external">
-                          <img src="${static.url('themes/eduStack-theme/images/idefs.png')}" alt="竹轩小站"
-                               style="width: 30px;height: 30px;"/>
-                      </a>
-                  </li>
-              </ul>
-          </nav>
-          <nav class="nav-legal">
-              <ul>
-                  <li class="nav-legal-01">
-                      <a href="/tos" target="_blank">服务条款</a>
-                  </li>
-                  <li class="nav-legal-01">
-                      <a href="/honor" target="_blank">诚信准则</a>
-                  </li>
-                  <li class="nav-legal-02">
-                      <a href="/privacy" target="_blank">隐私政策</a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
-          -->
   </footer>
 </div>
+

@@ -6,7 +6,6 @@
   font-size: $gFontSize;
   width: 100%;
   padding: 25px 0 30px;
-  background-color: #FAFAFA;
   margin-top: 2rem;
   @include screenIs(belowDesktop) {
     overflow-x: hidden;
@@ -15,7 +14,7 @@
 
   // footer style
   footer {
-    min-width: $gMinPageWidth;
+    min-width: $gPageMinWidth;
     max-width: $gMaxContentWidth;
     margin: 0 auto;
     width: 100%;
@@ -49,10 +48,7 @@
       }
 
       .nav-colophon {
-        margin-bottom: 2rem;
-        @include screenIs(belowDesktop) {
-          margin-bottom: 1rem;
-        }
+        margin-bottom: 1rem;
 
         // nav list style
         ul li {
@@ -69,6 +65,26 @@
           line-height: 1.4;
           margin: 0.5rem 0;
         }
+
+        .nav-legal {
+
+          ul {
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            @include clearfix;
+
+            li {
+              float: left;
+              margin-right: 1em;
+              font-size: 0.9rem;
+            }
+
+          }
+
+        }
+
       }
     }
 

@@ -3,11 +3,9 @@
  ***/
 
 $gFontSize: 14px;
-$gMaxPageWidth: 1200px;
+$gPageMaxWidth: 1200px;
 $gMaxContentWidth: 1180px;
-$gMaxPadWidth: 992px;
-$gMaxPhoneWidth: 768px;
-$gMinPageWidth: 320px;
+$gPageMinWidth: 320px;
 
 $gWidth: 1200px;
 
@@ -15,7 +13,10 @@ $mFontSize: 12px;
 $hFontSize: 14px;
 $xFontSize: 16px;
 
-%clearfix {
+$gBackgroundColor: #FFFFFF;
+$gButtonBgColor: #1790C7;
+
+@mixin clearfix {
   &:before,
   &:after {
     content: "";
@@ -32,11 +33,17 @@ $xFontSize: 16px;
   box-sizing: border-box;
 }
 
+%subtitleStyle {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #666;
+}
 
-$phone-range: (0, 40em) !default;
-$pad-range: (40.0625em, 64em) !default;
-$desktop-range: (64.0625em, 90em) !default;
-$wide-range: (90.0625em, 99999em) !default;
+$phone-range: (0, 767px) !default;
+$pad-range: (768px, 992px) !default;
+$desktop-range: (993px, 1200px) !default;
+$wide-range: (1201px, 99999em) !default;
 
 @function lower-bound($range) {
   @if length($range) <= 0 {

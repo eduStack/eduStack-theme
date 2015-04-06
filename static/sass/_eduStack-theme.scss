@@ -14,9 +14,14 @@ html, body {
   font-size: $gFontSize !important;
 }
 
+body {
+  background-color: $gBackgroundColor;
+}
+
 .window-wrap {
 
   width: 100%;
+  min-width: $gPageMinWidth;
   margin: 0;
   padding: 0;
   overflow: hidden;

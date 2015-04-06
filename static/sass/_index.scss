@@ -7,23 +7,29 @@
 @import "eduStack-base";
 
 //$partnerBackgroundColor: rgba(175, 217, 24, 0.77);
-$partnerBackgroundColor: #F0F0F0;
-$bannerBackgroundColor: #0DA3DC;
+$bannerBackgroundColor: $gButtonBgColor;
 
 .content-wrapper {
 
   max-width: inherit;
   max-height: inherit;
 
+  .find-course {
+    background-color: inherit;
+  }
+
   .banner {
+
+    $moreBtnBgColor: lighten($gButtonBgColor, 10%);
+
     margin: 0;
     padding: 0;
     background-color: $bannerBackgroundColor;
     $_color: white;
 
     .banner-course-wrapper {
-      max-width: $gMaxPageWidth;
-      width: 80%;
+      max-width: $gPageMaxWidth;
+      width: 100%;
       margin: 0 auto;
       padding: 4rem 2rem;
       min-height: 10rem;
@@ -86,8 +92,13 @@ $bannerBackgroundColor: #0DA3DC;
           font-size: 1.3rem;
           font-weight: bold;
           border: 1px solid $_color;
-          border-radius: 0.4rem;
+          background-color: $moreBtnBgColor;
           text-align: center;
+
+          &:hover {
+            background-color: $gButtonBgColor;
+          }
+
         }
 
       }
@@ -159,13 +170,11 @@ $bannerBackgroundColor: #0DA3DC;
 
   .courses-container {
     max-height: inherit;
-    max-width: $gMaxPageWidth;
+    width: 100%;
+    max-width: $gMaxContentWidth;
     margin: auto;
-    padding: 0;
+    padding: 0 1rem;
 
-    @include screenIs(isDesktop) {
-
-    }
     @include screenIs(isPad) {
     }
     @include screenIs(isPhone) {
@@ -176,11 +185,13 @@ $bannerBackgroundColor: #0DA3DC;
     }
 
     header {
-      font-size: 1.4rem;
-      padding: 4rem 0;
-      line-height: 1.4;
+      font-size: 1.7rem;
+      padding: 3rem 0 2rem;
       text-align: center;
-      font-weight: bold;
+
+      & > span {
+        @extend %subtitleStyle;
+      }
 
       @include screenIs(belowDesktop) {
 //        font-size: 2rem;
@@ -202,22 +213,27 @@ $bannerBackgroundColor: #0DA3DC;
 
       ul.courses-listing {
 
+        $listBorderColor: #CCC;
+
         li {
-          overflow: visible;
-          width: 25%;
+          overflow: hidden;
+          width: calc(25% + 1px);
+          min-width: 280px;
+          max-width: 320px;
           padding: 10px 5px 1rem;
           @include border-box;
-          border: 1px solid #CCC;
+          border: 1px solid $listBorderColor;
           margin: 0 0 -1px -1px;
 
           @include screenIs(isDesktop){
-            width: percentage(1 / 3);
+            width: calc(percentage(1 / 3) + 1px);
           }
           @include screenIs(isPad) {
-            width: 50%;
+            width: calc(50% + 1px);
           }
           @include screenIs(isPhone) {
             width: 100%;
+            max-width: 100%;
           }
 
           article {
@@ -226,6 +242,7 @@ $bannerBackgroundColor: #0DA3DC;
             margin: 0 auto;
             border: none;
             box-shadow: none;
+            background-color: inherit;
 
             .course-wrapper {
               overflow: hidden;
@@ -253,8 +270,8 @@ $bannerBackgroundColor: #0DA3DC;
               padding: 0.4rem 1rem 1.2rem;
               overflow: hidden;
 
-              & > div {
-                margin-top: 1rem;
+              a span {
+                font-weight: bold;
               }
 
             }
@@ -280,10 +297,11 @@ $bannerBackgroundColor: #0DA3DC;
             }
 
             .course-title {
-              font-size: 1.4rem;
+              font-size: 1.2rem;
               font-weight: bold;
               overflow: hidden;
               white-space: nowrap;
+              color: #212121;
             }
 
             .course-status {
@@ -305,20 +323,19 @@ $bannerBackgroundColor: #0DA3DC;
 // For partner section
 /*********************/
 .partner {
+  $bgColor: #F0F0F0;
+
   width: 100%;
   height: 100%;
   padding: 3rem 0 5rem;
-  background-color: $partnerBackgroundColor;
+  background-color: $bgColor;
 
   $_partnerNumber: 3;
 
   .partner-title {
     text-align: center;
     span {
-      font-size: 2rem;
-      font-weight: bold;
-      color: white;
-      letter-spacing: 0.3rem;
+      @extend %subtitleStyle;
     }
   }
 

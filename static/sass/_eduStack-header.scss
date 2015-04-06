@@ -1,8 +1,6 @@
 
 @import "eduStack-base";
 
-$_buttonBackgroundColor: #1790c7;
-
 header.global {
 
   $_hHeaderHeight: 60px;
@@ -40,7 +38,7 @@ header.global {
     margin: 0 auto;
     padding: 0;
     max-width: $gMaxContentWidth;
-    min-width: $gMinPageWidth;
+    min-width: $gPageMinWidth;
 
     @include screenIs(isWide) {
       height: $_maxHeaderHeight;
@@ -122,8 +120,8 @@ header.global {
         text-align: center;
 
         &.cta-login {
-          background-color: $_buttonBackgroundColor;
-          box-shadow: 0 1px 1px 0 #0a4a67;
+          background-color: $gButtonBgColor;
+          box-shadow: 0 1px 1px 0 #126F9A;
           border-radius: 0.3rem;
           color: white;
         }
@@ -143,7 +141,7 @@ header.global {
         }
 
         &.left {
-          margin-right: 2rem;
+          margin-right: 0.5rem;
           @include screenIs(isPhone) {
             margin-right: 0;
           }
