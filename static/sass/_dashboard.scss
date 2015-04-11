@@ -1,0 +1,29 @@
+
+@import "eduStack-base";
+
+#dashboard-main {
+
+    .profile-sidebar {
+      header,
+      .user-info ul {
+        border-radius: 0;
+      }
+    }
+
+    .my-courses {
+
+      a.enter-course {
+        background-image: none;
+        box-shadow: none;
+        border-radius: 0;
+        text-shadow: none;
+        &:hover {
+          background-color: $gButtonHoverBgColor;
+        }
+      }
+
+    }
+}
+
+
+

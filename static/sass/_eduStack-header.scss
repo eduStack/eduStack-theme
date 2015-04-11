@@ -120,10 +120,13 @@ header.global {
         text-align: center;
 
         &.cta-login {
-          background-color: $gButtonBgColor;
-          box-shadow: 0 1px 1px 0 #126F9A;
-          border-radius: 0.3rem;
-          color: white;
+          color: $gButtonColor;
+          border: 1px solid $gButtonBorderColor;
+
+          &:hover {
+            color: $gButtonHoverColor;
+            background-color: $gButtonHoverBgColor;
+          }
         }
 
       }

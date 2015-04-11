@@ -4,7 +4,6 @@
 // for index
 @import "index";
 
-
 #content {
 
   .course-profile {
@@ -65,7 +64,7 @@
                 @include border-box;
 
                 header {
-                  padding-bottom: 1em;
+                  padding: 1em 0;
                   position: relative;
                   text-align: center;
 
@@ -131,9 +130,9 @@
               .important-dates {
                 list-style: none;
                 margin: 0;
+                padding: 0;
 
                 li {
-                  padding-left: 20px;
                   font-size: 16px;
                   height: 1.4em;
                   line-height: 1.4em;
@@ -174,7 +173,7 @@
           $color: #55C2F2;
 
           border: 1px solid darken($color, 50%);
-          color: #000000;
+          color: $gTextColor;
           font-size: 22px;
           padding: 30px;
           float: left;
@@ -184,10 +183,23 @@
           border-radius: 0;
 
           &:hover {
-            background: $color none;
-            color: white;
+            background: $gButtonHoverBgColor none;
+            color: $gButtonHoverColor;
+          }
+        }
+
+        & > a {
+
+          & > span {
+            cursor: not-allowed;
           }
 
+          & > strong {
+            box-shadow: none;
+            text-shadow: none;
+            border-radius: 0;
+            background-image: none;
+          }
         }
 
       }

@@ -1,5 +1,5 @@
 /****************************************************************************************************
-*   Stanford theme File
+*   eduStack theme File
 *
 *   Contains all the theme color definitions for the eduStack Open Source MOOC Project
 *
@@ -9,6 +9,12 @@
 @import "eduStack-header";
 @import "eduStack-footer";
 @import "eduStack-body";
+
+// for dashboard
+@import "dashboard";
+
+// for register
+@import "register";
 
 html, body {
   font-size: $gFontSize !important;
@@ -37,6 +43,9 @@ body {
   padding: 0;
 }
 
+a:focus {
+  outline: none;
+}
 
 
 

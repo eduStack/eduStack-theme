@@ -14,7 +14,15 @@ $hFontSize: 14px;
 $xFontSize: 16px;
 
 $gBackgroundColor: #FFFFFF;
+$gHighlightColor: #1790C7;
+$gTextColor: #3C3C3C;
+$gQuoteColor: #646464;
+
 $gButtonBgColor: #1790C7;
+$gButtonBorderColor: #1790C7;
+$gButtonColor: #1D9DD9;
+$gButtonHoverColor: #FEFEFE;
+$gButtonHoverBgColor: #1790C7;
 
 @mixin clearfix {
   &:before,
@@ -121,7 +129,4 @@ $wide-range: (1201px, 99999em) !default;
   }
 }
 
-a:focus {
-  outline: none;
-}
 

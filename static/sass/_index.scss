@@ -7,7 +7,7 @@
 @import "eduStack-base";
 
 //$partnerBackgroundColor: rgba(175, 217, 24, 0.77);
-$bannerBackgroundColor: $gButtonBgColor;
+$bannerBackgroundColor: $gHighlightColor;
 
 .content-wrapper {
 
@@ -20,7 +20,7 @@ $bannerBackgroundColor: $gButtonBgColor;
 
   .banner {
 
-    $moreBtnBgColor: lighten($gButtonBgColor, 10%);
+    $moreBtnBgColor: lighten($gButtonHoverBgColor, 10%);
 
     margin: 0;
     padding: 0;
@@ -96,7 +96,7 @@ $bannerBackgroundColor: $gButtonBgColor;
           text-align: center;
 
           &:hover {
-            background-color: $gButtonBgColor;
+            background-color: $gButtonHoverBgColor;
           }
 
         }
